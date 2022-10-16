@@ -23,6 +23,12 @@ def imread(path):
     return I
 
 
+def binary_mask(img, threshold=0.2):
+    img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img = img.astype(np.float64) / 255
+    img = np.where(img > threshold, 1, 0)
+    return img
+
 def imread_gray(path):
     """
     Reads an image in gray. Image type is transformed from uint8 to float, and
