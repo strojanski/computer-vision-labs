@@ -50,6 +50,7 @@ I[150:350, 150:350, :] = 1 - I[150:350, 150:350, :]
 #Icpy = Icpy.astype(np.uint8)
 #Icpy[50:150, 50:150, :] = 255 - Icpy[50:150, 50:150, :]
 plt.imshow(I)
+plt.show()
 
 # e) Perform a reduction of grayscale levels in the image
 
@@ -70,6 +71,8 @@ plt.title("Original greyscale")
 plt.subplot(1,2,2)
 plt.imshow(I, vmax=255)
 plt.title("Reduced greyscale")
+
+plt.show()
 
 
 # Exercise 2: Thresholding and histograms
@@ -128,7 +131,7 @@ def myhist(img, n_bins):
 H1 = myhist(img, n_bins=128)
 tags = np.array([int(i) for i in range(len(H1))])
 plt.bar(tags, H1)
-
+plt.show()
 # Normalized histogram 
 #H = H / np.linalg.norm(H)
 #plt.bar(tags, H) 
@@ -171,7 +174,7 @@ plt.title("myhist")
 plt.subplot(1,2,2)
 plt.bar(tags, H2)
 plt.title("modified_hist")
-
+plt.show()
 # d) Test myhist on images (three or more) of the same scene in different lighting conditions.
 
 # Load 4 pictures of same scene and display histograms with myhist
@@ -280,7 +283,7 @@ plt.subplot(1,3,3)
 plt.imshow(img)
 plt.title(f"Binarized image")
 
-
+plt.show()
 # # Exercise 3: Morphological operations and regions
 
 # a) Perform erosion and dilation on mask.png and experiment with combinations (opening, closing)
@@ -303,6 +306,7 @@ plt.title("eroded")
 plt.subplot(1,2,2)
 plt.imshow(dilated)
 plt.title("dilated")
+plt.show()
 
 # b) Try to clean up the mask of the image bird.jpg using morphological operations.
 
@@ -327,7 +331,7 @@ plt.title("Mask")
 plt.subplot(1,2,2)
 plt.imshow(closed)
 plt.title("Cleaned up mask")
-
+plt.show()
 
 # c) (extra) Write a function immask that accepts a three channel image and a binary mask and returns an image where pixel values are set to black if the corresponding pixel in the mask is equal to 0. Otherwise, the pixel value should be equal to the corresponding image pixel. Use `np.expand_dims` function to make the mask and the image to have the same number of axes
 
@@ -368,7 +372,7 @@ img = immask(img, mask)
 plt.subplot(1,3,3)
 plt.imshow(img)
 
-
+plt.show()
 # Load image
 img = cv2.imread("images/coins.jpg")
 img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -424,3 +428,4 @@ plt.title("cleaned up")
 plt.subplot(1,4,4)
 plt.imshow(res)
 plt.title("filtered coins")
+plt.show()
