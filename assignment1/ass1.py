@@ -413,19 +413,21 @@ for object in range(num_labels):
         res[labels == object+1] = 255   # fill in the coins
 
 
+final = img.copy()
+final[res==0] = 255
+
 plt.subplot(1,4,1)
 plt.imshow(img)
 plt.title("original")
 
 plt.subplot(1,4,2)
-plt.imshow(mask)
-plt.title("mask")
-
-plt.subplot(1,4,3)
 plt.imshow(img_cleaned)
 plt.title("cleaned up")
 
-plt.subplot(1,4,4)
+plt.subplot(1,4,3)
 plt.imshow(res)
+plt.title("mask")
+
+plt.subplot(1,4,4)
+plt.imshow(final)
 plt.title("filtered coins")
-plt.show()
