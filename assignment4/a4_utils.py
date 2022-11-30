@@ -105,5 +105,5 @@ def display_matches(I1, pts1, I2, pts2):
 		plt.plot(x2 + w, y2, 'bo', markersize=3)
 		plt.plot([x1, x2 + w], [y1, y2], 'r', linewidth=.8)
 
-	plt.show(figsize=(10,7))
+	plt.show()
 	
