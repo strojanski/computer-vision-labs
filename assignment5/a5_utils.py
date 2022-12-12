@@ -15,7 +15,7 @@ def normalize_points(P):
 	res = np.dot(T,P.T).T
 	return res, T
 
-def draw_epiline(l,h,w):
+def draw_epiline(l,h,w, ax=None):
 	# l: line equation (vector of size 3)
 	# h: image height
 	# w: image width
@@ -23,7 +23,15 @@ def draw_epiline(l,h,w):
 	x0, y0 = map(int, [0, -l[2]/l[1]])
 	x1, y1 = map(int, [w-1, -(l[2]+l[0]*w)/l[1]])
 
-	plt.plot([x0,x1],[y0,y1],'r')
+	if not ax:
+		
+		plt.plot([x0,x1],[y0,y1],'r')
 
-	plt.ylim([0,h])
-	plt.gca().invert_yaxis()
+		plt.ylim([0,h])
+		plt.gca().invert_yaxis()
+	else:
+		ax.plot([x0,x1],[y0,y1],'r')
+
+		ax.ylim([0,h])
+		ax.gca().invert_yaxis()
+	
